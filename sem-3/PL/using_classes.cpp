@@ -45,3 +45,13 @@ int main() {
     getch();
     return 0;
 }
+
+/** Output
+Enter roll no: 1
+Enter marks obtained: 12
+Enter total marks: 56
+Roll No: 1
+Marks Obtained: 12
+Total marks: 56
+Percentage: 21.428571
+*/
