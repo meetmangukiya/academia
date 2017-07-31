@@ -30,6 +30,7 @@ class Student {
         cout << "Roll no: " << rollNo;
         cout << "Marks obtained: " << marksObtained;
         cout << "Total marks: " << totalMarks;
+        cout << "Percentage: " << marksObtained / totalMarks * 100;
     }
 
 };
