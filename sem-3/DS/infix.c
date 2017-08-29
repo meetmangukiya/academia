@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <conio.h>
 
 #define SIZE 100
 
@@ -155,9 +156,12 @@ float evaluate_postfix(char* string) {
 int main() {
     char res[100] = "";
     char expression[100];
+
+    clrscr();
     printf("Expression: ");
     gets(expression);
 
     printf("Postfix: %s\n", infix_to_postfix(expression, res));
     printf("Result: %f", evaluate_postfix(res));
+    getch();
 }
