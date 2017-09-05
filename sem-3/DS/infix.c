@@ -165,3 +165,10 @@ int main() {
     printf("Result: %f", evaluate_postfix(res));
     getch();
 }
+
+/**
+OUTPUT
+Expression:  5*(4-2)+5*4
+Postfix: 542-*54*+
+Result: 30.000000
+*/
