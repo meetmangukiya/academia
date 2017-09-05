@@ -127,12 +127,12 @@ float evaluate_postfix(char* string) {
     int i;
     for(i = 0; i < strlen(string); i++) {
         if (isdigit(string[i])) {
-            push_float((int)string[i] - 48, &stack);
+            push_float(((int)string[i]) - 48, &stack);
         }
         else {
-            int op2 = pop_float(&stack);
-            int op1 = pop_float(&stack);
-            int res;
+            float op2 = pop_float(&stack);
+            float op1 = pop_float(&stack);
+            float res;
             switch(string[i]) {
                 case '+':
                     res = op1 + op2;
