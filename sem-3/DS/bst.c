@@ -50,10 +50,10 @@ void insert(struct BTNode* node, int data) {
 }
 
 void traverse_node(struct BTNode* node) {
-    if (node != NULL && node->data == NULL && node->parent == NULL) {
-        printf("Tree is empty");
-        return;
-    }
+    /*if (node != NULL && node->data == NULL && node->parent == NULL) {*/
+        /*printf("Tree is empty");*/
+        /*return;*/
+    /*}*/
 
 	if (node != NULL) {
 		traverse_node(node->left);
@@ -94,11 +94,18 @@ void delete_node(struct BTNode* node) {
     	copy = node->left;
 		while(copy->right != NULL)
 		    copy = copy->right;
+
+        if (node->parent->left != NULL && node->parent->left == node) {
+            node->parent->left = copy;
+            copy->parent = node->parent;
+        }
+        else {
+            node->parent->right = copy;
+            copy->parent = node->parent;
+        }
+
 	    copy->left = node->left;
-    	copy->parent = node->parent;
 		copy->right = node->right;
-		copy->left->parent = copy;
-        copy->right->parent = copy;
         free(node);
 	}
 	else {
