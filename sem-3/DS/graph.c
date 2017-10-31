@@ -1,4 +1,4 @@
-/*#include <conio.h>*/
+#include <conio.h>
 #include <malloc.h>
 #include <stdio.h>
 
@@ -13,7 +13,7 @@ struct Node* createQueue() {
 
 void enqueue(struct Node** start, int data) {
 	if ((*start) == NULL) {
-		struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
+		struct Node* newnode = malloc(sizeof(struct Node));
 		newnode->data = data;
 		newnode->next = NULL;
 		*start = newnode;
@@ -24,7 +24,7 @@ void enqueue(struct Node** start, int data) {
 		while(copy->next != NULL)
 			copy = copy->next;
 
-		newnode = (struct Node*)malloc(sizeof(struct Node));
+		newnode = malloc(sizeof(struct Node));
 		newnode->data = data;
 		newnode->next = NULL;
 		copy->next = newnode;
@@ -58,9 +58,9 @@ void traverse_queue(struct Node* start) {
 
 int** createGraph(int n) {
 	int i;
-	int** rows = (int**)malloc(sizeof(int*) * n);
+	int** rows = malloc(sizeof(int*) * n);
 	for(i = 0; i < n; i++)
-		rows[i] = (int*)malloc(sizeof(int) * n);
+		rows[i] = malloc(sizeof(int) * n);
 	return rows;
 }
 
@@ -71,17 +71,14 @@ void add_edge(int** graph, int from, int to) {
 void traverse_graph(int** graph, int number_of_nodes, int node) {
 	struct Node* queue = createQueue();
 	int i;
-	int* visited_state = (int*)malloc(sizeof(int));
+	int* visited_state = malloc(sizeof(int) * number_of_nodes);
 
 	for(i = 0; i < number_of_nodes; i++)
 		visited_state[i] = 0;
 
 	enqueue(&queue, node);
 	while(queue != NULL) {
-		/*printf("queue: ");*/
-		/*traverse_queue(queue);*/
 		node = dequeue(&queue);
-	     //	printf("data: %d", node);
 		if (visited_state[node] != 1) {
 			for(i = 0; i < number_of_nodes; i++) {
 				if (graph[node][i] == 1) {
@@ -92,6 +89,8 @@ void traverse_graph(int** graph, int number_of_nodes, int node) {
 		}
 		visited_state[node] = 1;
 	}
+
+    free(visited_state);
 }
 
 void main() {
@@ -99,7 +98,7 @@ void main() {
 	int number_of_nodes, i, j, choice;
 	int** graph;
 
-	/*clrscr();*/
+    clrscr();
 
 	printf("Number of nodes: ");
 	scanf("%d", &number_of_nodes);
@@ -110,6 +109,8 @@ void main() {
             graph[i][j] = 0;
         }
     }
+
+    printf("1: add_edge, 2: traverse, -1: exit");
 
 	while(1) {
 		printf("Choice: ");
@@ -129,13 +130,6 @@ void main() {
 				}
 				break;
 			case 2:
-				printf("\nmatrix: \n");
-				for(i = 0; i < number_of_nodes; i++) {
-					for(j = 0; j < number_of_nodes; j++) {
-						printf("%d ", graph[i][j]);
-					}
-					printf("\n");
-				}
 				printf("Enter start: ");
 				scanf("%d", &start);
 				printf("Traversed graph: ");
@@ -148,5 +142,37 @@ void main() {
 
 	}
 
-	/*getch();*/
+    getch();
 }
+
+/** Output
+Number of nodes: 9
+1: add_edge, 2: traverse, -1: exitChoice: 1
+Enter from, to: 0 1
+Choice: 1
+Enter from, to: 0 3
+Choice: 1
+Enter from, to: 0 4
+Choice: 1
+Enter from, to: 1 2
+Choice: 1
+Enter from, to: 1 4
+Choice: 1
+Enter from, to: 2 5
+Choice: 1
+Enter from, to: 3 4
+Choice: 1
+Enter from, to: 3 6
+Choice: 1
+Enter from, to: 4 5
+Choice:
+1
+Enter from, to: 4 7
+Choice: 1
+Enter from, to: 6 2
+Choice: 1
+Enter from, to: 7 8
+Choice: 2
+Enter start: 0
+Traversed graph: 0 1 3 4 2 6 5 7 8 Choice: -1
+*/
