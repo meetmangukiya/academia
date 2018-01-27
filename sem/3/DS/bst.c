@@ -1,5 +1,5 @@
 #include <stdio.h>
-//#include <conio.h>
+#include <conio.h>
 #include <malloc.h>
 
 struct BTNode {
@@ -124,9 +124,9 @@ void delete_node(struct BTNode* node) {
 
 void main() {
 	struct BTNode root = createBST();
-//	clrscr();
+	clrscr();
 
-    printf("1: insert, 2: traverse, 3: search, -1: exit");
+    printf("1: insert, 2: traverse, 3: search, 4: delete, -1: exit");
 
 	while (1) {
 		int choice;
@@ -166,10 +166,42 @@ void main() {
 			    break;
 
 			case -1:
-				printf("1: insert, 2: traverse, 3: search, -1: exit");
+				printf("1: insert, 2: traverse, 3: search, 4: delete, -1: exit");
 				break;
 		}
 	}
 
-//	getch();
+	getch();
 }
+
+/** Output
+1: insert, 2: traverse, 3: search, 4: delete, -1: exitChoice: 1
+Data: 15
+Choice: 1
+Data: 10
+Choice: 1
+Data: 20
+Choice: 1
+Data: 8
+Choice: 1
+Data: 12
+Choice: 1
+Data: 18
+Choice: 1 30
+Data: Choice: 1
+Data: 15
+Choice: 1
+Data: 19
+Choice: 1
+Data: 21
+Choice: 2
+8 10 12 15 18 19 20 21 30 Choice: 3
+Data to be searched: 18
+Data found!Choice: 3
+Data to be searched: 35
+Data not found on tree.Choice: 4
+Data to be deleted: 30
+Choice: 2
+8 10 12 15 18 19 20 21 Choice:
+-1
+*/
