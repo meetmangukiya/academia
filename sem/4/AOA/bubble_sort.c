@@ -1,22 +1,4 @@
-#include <stdio.h>
-#include "utils.h"
-
-void bubble_sort(int*, int);
-
-int main() {
-    int array[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    int size = 10;
-
-    printf("Before sorting: ");
-    print_int_array(array, size);
-
-    bubble_sort(array, size);
-
-    printf("\nAfter sorting: ");
-    print_int_array(array, size);
-
-    return 0;
-}
+#include "sort.h"
 
 void bubble_sort(int* array, int len) {
     int i, j;
