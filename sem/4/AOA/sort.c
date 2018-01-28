@@ -11,6 +11,7 @@ int main() {
     char* help = ("\
 1: Bubble sort\n\
 2: Insertion sort\n\
+3: Shell sort\n\
 ");
 
     printf("%s", help);
@@ -28,6 +29,9 @@ int main() {
             break;
         case 2:
             insertion_sort(array, size);
+            break;
+        case 3:
+            shell_sort(array, size);
             break;
         default:
             printf("Wrong choice");
