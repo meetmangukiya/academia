@@ -12,6 +12,7 @@ int main() {
 1: Bubble sort\n\
 2: Insertion sort\n\
 3: Shell sort\n\
+4: Quick sort\n\
 ");
 
     printf("%s", help);
@@ -32,6 +33,9 @@ int main() {
             break;
         case 3:
             shell_sort(array, size);
+            break;
+        case 4:
+            quick_sort(array, size);
             break;
         default:
             printf("Wrong choice");
