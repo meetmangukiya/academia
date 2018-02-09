@@ -7,5 +7,6 @@ void insertion_sort(int*, int);
 void insertion_sort_with_gap(int*, int, int);
 void shell_sort(int*, int);
 void quick_sort(int*, int);
+void radix_sort(int*, int);
 
 #endif

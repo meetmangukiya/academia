@@ -13,6 +13,7 @@ int main() {
 2: Insertion sort\n\
 3: Shell sort\n\
 4: Quick sort\n\
+5: Radix sort\n\
 ");
 
     printf("%s", help);
@@ -36,6 +37,9 @@ int main() {
             break;
         case 4:
             quick_sort(array, size);
+            break;
+        case 5:
+            radix_sort(array, size);
             break;
         default:
             printf("Wrong choice");
