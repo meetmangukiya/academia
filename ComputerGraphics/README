@@ -1,0 +1,5 @@
+DDA.cpp:
+    Implemented line drawing using DDA algorithm.
+    Implemented a custom string rendering / drawing function that used the line
+    drawing function developed earlier.
+    Used Turbo C/C++'s graphics library for implementation.
